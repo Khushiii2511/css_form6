@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color: blueviolet;">
+        Guess the number game
+    </h1>
+    <button onclick="printText()">
+        Start game
+    </button>
+    <h3 id="text"></h3>
+<script>
+           
+    function printText()
+    {
+         txt=prompt("Enter A No. between 1 and 100");
+         if(txt<0 || txt>100){
+            document.getElementById("text").innerHTML="Wrong Input"
+            return;
+         }
+         check="You Win \t Computer guessed it wrong .<br><br>";
+         guess=""
+         for (let i=0;i<5;i++)
+         {
+            result=Math.floor(Math.random()*100)
+             guess="Computer guessed: " +String(result)+"<br><br>";
+             document.getElementById("text").innerHTML+=guess;
+             if(result==txt)
+             {
+                check="You Lose \t Computer Guessed it right. <br><br>"
+             }
+         }    
+          document.getElementById("text").innerHTML+=check;
+    }
+</script>
+</body>
+</html>
